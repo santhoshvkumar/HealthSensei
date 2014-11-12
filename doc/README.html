@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BlueRadios Android BRSP ReadMe</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    body {
+      background: #ededed;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .contentdiv {
+      margin-left: 10px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    div {
+      padding: 2px 0;
+    }
+
+    .sub-section-item {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="contentdiv">
+  <div style="margin: 0 auto;">
+    <img src="http://blueradios.com/images/logo-bri.gif"
+         alt="BlueRadiosLogo">
+  </div>
+  <div>
+    <h1>BlueRadios Android BRSP ReadMe</h1>
+  </div>
+  <h2 name="important">Important</h2>
+
+  <div style="color: red">The following is recommended</div>
+  <div>1) <b>Using this library in a production environment is not recommended</b> until the Google Low Energy API becomes more mature and stable.  Use at your own discretion.</div>
+  <div>2) Turn the WiFi off on your Android device.</div>
+  <div>3) Do <b>NOT</b> pair your Android to the remote device.</div>
+  <div>For more information, see the <a href="#testing">Testing</a> and <a
+    href="#knownissues">Known Issues</a> sections.</div>
+  <h2 name="history">Version History</h2>
+  <div class="sub-section-item">8/12/2013 - Version 1.0</div>
+  <div>Initial release</div>
+  <br/>
+
+  <div class="sub-section-item">12/18/2013 - Version 1.0.1</div>
+  <div>1) getBrspState() now correctly returns the correct
+    BRSP_STATE_READY state when ready
+  </div>
+  <div>2) brsp object raises a more descriptive exception if
+    writeBytes is called in any other state than BRSP_STATE_READY.
+  </div>
+  <div>3) Modified the sample app to show the usage of above fixes</div>
+  <div>4) Added App Version menu item that returns current app
+    version (Same as library version)
+  </div>
+  <br/>
+
+  <div class="sub-section-item">1/23/2014 - Version 1.1.0</div>
+  <div>
+    1) Updated the Menu in the sample app to work properly on smaller screens
+  </div>
+  <div>
+    2) Changed the minSdkVersion in the sample app to support SDK 18 (4.3)
+  </div>
+  <div><b>Note: No changes were made to the actual library file in this release.</b></div>
+  <br/>
+
+  <div class="sub-section-item">11/10/2014 - Version 1.2.0</div>
+  <div>
+    1) Diconnecting now destroys internal gatt object.  This change fixes unable to reconnect problems in certain situations.
+  </div>
+  <div>
+    2) A new UnstableException is now sent to onError() of BrspCallback when library detect that the bluetooth has become unstable.
+    This will occur if disconnect has been called and state changes to connected.
+    Cycling the bluetooth here pragmatically may fix the instability most of the time but is not recommended by Google without user permission.
+  </div>
+  <div>
+    3) A 100ms delay has been placed between the internal disconnect and close to prevent Unhandled NullPointerException.
+  </div>
+
+  <h2 name="testing">Testing</h2>
+
+  <div>This has been tested on a Nexus 7 2013 model and Samsung S4. The Nexus 4
+    should also work but has not been verified. Note: BLE did not work at
+    all on a Nexus 7, 2012. (Android version 4.3)
+  </div>
+
+
+  <h2 name="knownissues">Known Issues</h2>
+
+  <div>
+    Connecting and disconnecting without enough of an interval between seems to make the bluetooth unstable.  Cycling
+    the bluetooth on the device fixes this most of the time.  Occasionally the handset will have to be rebooted.
+  </div>
+  <br/>
+  <div class="sub-section-item">Android 4.4</div>
+  <div>1) Pairing is unstable and not recommended, if used on a
+    handset with 4.4 Android installed
+  </div>
+  <br/>
+
+  <div class="sub-section-item">Android 4.3</div>
+  <div>1) WiFi seems to cause connections to become unstable. More
+    disconnects and possibly other problems can occur if the WiFi is
+    turned on.
+  </div>
+  <div>2) After the first connect, the Bluetooth will have to be
+    cycled on your Android to connect to the same device again, or any
+    other if paired. Also, a bug in Android OS prevents being able to
+    unpair once paired.
+  </div>
+  <div>
+    3) This API <b>only works on our single-mode modules,</b> but not the
+    dual modes at this time due to a bug in the 4.3 release of Android
+    OS.
+  </div>
+
+  <h2>Useful Links</h2>
+  <div><a target="_blank" href="http://stackoverflow.com/questions/17870189/android-4-3-bluetooth-low-energy-unstable">http://stackoverflow.com/questions/17870189/android-4-3-bluetooth-low-energy
+    -unstable</a></div>
+  <div><a target="_blank" href="https://code.google.com/p/android/issues/detail?id=58381">https://code.google.com/p/android/issues/detail?id=58381</a></div>
+  <div><a target="_blank" href="https://code.google.com/p/android/issues/detail?id=58607">https://code.google.com/p/android/issues/detail?id=58607</a></div>
+
+  <h2>Support</h2>
+  <div>
+    Please send all questions and possible bugs to <a
+    href="mailto:sales@blueradios.com?Subject=Droid BRSP API Support"
+    target="_top">BlueRadios</a>.
+  </div>
+</div>
+</body>
+</html>
