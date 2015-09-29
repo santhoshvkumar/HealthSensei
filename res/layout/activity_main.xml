@@ -21,7 +21,17 @@
             android:layout_height="wrap_content"
             android:maxLines="1000" />
     </ScrollView>
-
+	
+    
+    
+    <Button
+        android:id="@+id/btnSetting"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Settings" />
+    
     <EditText
         android:id="@+id/editTextCommand"
         android:layout_width="match_parent"
@@ -31,5 +41,90 @@
         android:imeOptions="actionSend"
         android:inputType="text" >
     </EditText>
+
+    <TextView
+        android:id="@+id/heartRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/scrollView"
+        android:layout_alignParentTop="true"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/lblBPM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnSetting"
+        android:layout_alignBottom="@+id/btnSetting"
+        android:layout_marginLeft="32dp"
+        android:layout_toRightOf="@+id/heartRate"
+        android:text="BPM"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+      <TextView
+          android:id="@+id/txtTemp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/lblBPM"
+          android:layout_alignBottom="@+id/lblBPM"
+          android:layout_marginLeft="28dp"
+          android:layout_toRightOf="@+id/lblBPM"
+          android:text="0"
+          android:textAppearance="?android:attr/textAppearanceLarge"
+          android:textSize="30sp" />
+
+      <TextView
+          android:id="@+id/lblTemp"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBaseline="@+id/txtTemp"
+          android:layout_alignBottom="@+id/txtTemp"
+          android:layout_marginLeft="16dp"
+          android:layout_toRightOf="@+id/txtTemp"
+          android:text="deg"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+       />
+
+        <TextView
+            android:id="@+id/lblSPO2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnSetting"
+            android:layout_toLeftOf="@+id/lblBPM"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/lblSPOPer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lblSPO2"
+            android:layout_alignLeft="@+id/lblBPM"
+            android:text="%"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+           <TextView
+               android:id="@+id/lblBat"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignBaseline="@+id/lblSPOPer"
+               android:layout_alignBottom="@+id/lblSPOPer"
+               android:layout_toRightOf="@+id/lblTemp"
+               android:text="0"
+               android:textAppearance="?android:attr/textAppearanceLarge"
+               android:textSize="30sp" />
+
+           <TextView
+               android:id="@+id/lblBattery"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignBaseline="@+id/lblBat"
+               android:layout_alignBottom="@+id/lblBat"
+               android:layout_alignLeft="@+id/txtTemp"
+               android:text="Battery :"
+               android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

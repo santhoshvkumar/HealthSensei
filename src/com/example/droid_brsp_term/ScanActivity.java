@@ -16,10 +16,12 @@ import java.util.Map;
 import com.example.droid_brsp_sample.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
@@ -81,6 +83,17 @@ public class ScanActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 	Log.d(TAG, "onCreate");
+		BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		if (mBluetoothAdapter == null) {
+		    // Device does not support Bluetooth
+		} else {
+		    if (!mBluetoothAdapter.isEnabled()) {
+		        // Bluetooth is not enable :)
+		    	Toast.makeText(this, "Enable Blue Tooth!", Toast.LENGTH_SHORT).show();
+		    	
+	
+		    }
+		}
 	super.onCreate(savedInstanceState);
     }
 
