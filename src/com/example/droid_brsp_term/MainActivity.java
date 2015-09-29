@@ -138,6 +138,7 @@ public class MainActivity extends Activity {
 		    	}
 		    	catch(Exception e){
 					Toast.makeText(getApplicationContext(), "Something Bad Happened",  Toast.LENGTH_SHORT).show();
+					doDisconnect();
 					// recreate();
 				}
 		    } else {
@@ -687,6 +688,10 @@ public class MainActivity extends Activity {
     	        		  doConnect();
     	        		 // recreate();
     	        	  }
+    	        	  else if(_brsp.getConnectionState() == 0){
+    	        		  doDisconnect();
+    	        	  }
+    	        	
     	        			
     	        	
     	        	
